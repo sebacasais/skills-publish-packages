@@ -1,4 +1,5 @@
-name: Publish to Docker
+ ```yml
+   name: Publish to Docker
    on:
      push:
        branches:
@@ -17,7 +18,7 @@ name: Publish to Docker
            id: meta
            uses: docker/metadata-action@v5
            with:
-             images: ghcr.io/sebacasais/publish-packages/game
+             images: ghcr.io/YOURNAME/publish-packages/game
              tags: type=sha
          - name: Login to GHCR
            uses: docker/login-action@v3
@@ -31,3 +32,4 @@ name: Publish to Docker
              context: .
              push: true
              tags: ${{ steps.meta.outputs.tags }}
+   ```
